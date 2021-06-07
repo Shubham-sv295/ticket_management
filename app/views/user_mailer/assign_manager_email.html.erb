@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hi Mr. <%= @ticket.user.name %></h1>
+    <p>
+      We have assign a manager to Your Problem
+      <li>Manager name : <%= @ticket.manager.name %></li>
+      <br/>
+      <p>He will contact you soon</p>
+      <p>Thanks regards.</p>
+    </p>
+  </body>
+</html>

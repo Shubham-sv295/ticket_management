@@ -1,0 +1,65 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-10">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">All Subjects</h3>
+                <span style = "float: right"><%= link_to('Add New Subject ', new_admin_subject_path, :class => "button btn btn-success") %></span>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0" style="max-height: 300px;">
+                <table class="table table-head-fixed text-nowrap">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <% @subjects.each do |subject|%>
+                    <tbody>
+                      <tr>
+                        <td><%= subject.id%></td>
+                        <td><%= subject.name%></td>
+                        <td>
+                          <% subject.managers.each do |manager|%>
+                              <%= manager.name%>,
+                          <%end%>
+                        </td>
+                        <td><%= link_to('View', admin_subject_path(subject.id), :class => "btn btn-info") %>
+                        </td>
+                      </tr>
+                    </tbody>
+                  <%end%>
+                </table>
+              </div>
+              
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

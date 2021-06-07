@@ -1,0 +1,19 @@
+alert("comment created");
+var newDiv = '<div class="direct-chat-msg right">'+
+  '<% if !$last_comment_author.eql?(@comment.author.name) || @comment.created_at.to_date != $last_comment_date%>'+
+    '<% if @comment.author.avatar.attached? %>'+
+    '<%= image_tag @comment.author.avatar, :class => "direct-chat-img", :alt => "Message User Image" %>'+
+    '<% else %>'+
+    '<img class="direct-chat-img" src="/assets/user1-128x128.jpg" alt="Message User Image">'+
+    '<% end %>'+
+  '<% $last_comment_author = @comment.author.name%>'+
+  '<% end %>'+
+  '<div class="direct-chat-text">'+
+    '<span><%= @comment.content %><sub class = "comment-time"><%= @comment.created_at.strftime("%I:%M %P")%></sub></span>'+
+  '</div>'+
+'</div>';
+$(".direct-chat-messages").last().append(newDiv);
+$(".direct-chat-messages").animate({
+        scrollTop: $(".direct-chat-messages")[0].scrollHeight
+    }, 3000);
+alert("bottom");

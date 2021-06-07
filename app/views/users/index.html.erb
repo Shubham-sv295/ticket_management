@@ -1,0 +1,7 @@
+<div class="header-containers">
+  <%= link_to('Logout  ', destroy_user_session_path, method: :delete,:class => "button btn btn-primary header-btn") %>
+  <%= link_to('View Profile  ', user_path(current_user.id), :class => "button btn btn-info header-btn") %>
+  <div class="wel-mar">
+      <marquee><h3>Welcome To Ticket Management Mr. <%= current_user.name%></h3></marquee>
+  </div>
+</div>

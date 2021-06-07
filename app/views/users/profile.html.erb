@@ -1,0 +1,10 @@
+<% if @user.avatar.attached? %>
+<div class="profile-containers">
+	<%= image_tag @user.avatar.variant(resize: '30%x30%!') %>
+		<%end%><br/>
+	<span>Name : </span><%=@user.name%><br/>
+	<span>Email Id : </span><%=@user.email%><br/>
+	<span>Mobile No. : </span><%=@user.mob_no%><br/>
+
+	<%= link_to('Edit Detials', edit_user_path(current_user.id)) %>  	
+</div>	

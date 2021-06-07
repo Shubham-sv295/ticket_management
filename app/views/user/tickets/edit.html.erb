@@ -1,0 +1,38 @@
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="card card-warning col-6">
+        <div class="card-header">
+          <h3 class="card-title">Edit Ticket</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+          <%= form_for @ticket , url:user_ticket_path(@ticket.id) do |form|%>
+            <div class="row">
+              <div class="col">
+                <!-- text input -->
+                <div class="form-group">
+                  <%= form.label :subject_id %>
+                  <%= form.select :subject_id,Subject.all.pluck(:name,:id),{prompt:'select product'},{class: "drop-down form-control"}%>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <!-- textarea -->
+                <div class="form-group">
+                  <%= form.label :description %>
+                  <%= form.text_area :description, :class => "form-control", :placeholder => "Enter ...", :rows => "3"%>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer col">
+              <%= form.submit "Submit", :class => "btn btn-success"%>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

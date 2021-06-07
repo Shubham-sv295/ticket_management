@@ -1,0 +1,79 @@
+<body class="hold-transition login-page">
+<div class="login-box">
+  <!-- /.login-logo -->
+  <div class="card card-outline card-primary">
+    <div class="card-header text-center">
+      <a href="../../index2.html" class="h1"><b>Admin</b>LTE</a>
+    </div>
+    <div class="card-body">
+      <p class="login-box-msg">Sign in to start your session</p>
+
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), :class => "form-horizontal") do |f| %>
+        <div class="input-group mb-3">
+          <%= f.email_field :email, :class => "form-control", :tabindex => "1", :required => "true", :autofocus => "true", :placeholder => "Email" %>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <%= f.password_field :password, autocomplete: "current-password", :placeholder => "Password", :class => "form-control", :tabindex => "2", :required => "true" %>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <% if devise_mapping.rememberable? %>
+            <div class="col-8">
+              <div class="icheck-primary">
+                <%= f.check_box :remember_me, :tabindex => "3", :id => "remember" %>
+                <%= f.label :remember_me %>
+                  Remember Me
+                </label>
+              </div>
+            </div>
+          <% end %>
+          <!-- /.col -->
+          <div class="col-4">
+            <%= f.submit "Sign In", :class => "btn btn-primary btn-block", :tabindex => "4" %>
+          </div>
+          <!-- /.col -->
+        </div>
+      <%end%>
+
+      <div class="social-auth-links text-center mt-2 mb-3">
+        <a href="/users/auth/facebook" class="btn btn-block btn-primary">
+          <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
+        </a>
+        <a href="/users/auth/google_oauth2" class="btn btn-block btn-danger">
+          <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
+        </a>
+        <a href="/users/auth/twitter" class="btn btn-block btn-info">
+          <i class="fab fa-twitter mr-2"></i> Sign in using Twitter
+        </a>
+        <a href="/users/auth/linkedin" class="btn btn-block" style = "background: #2867B2">
+          <i class="fab fa-linkedin mr-2"></i> Sign in using LinkedIn
+        </a>
+        <!-- <a href="/users/auth/linkedin" class="btn btn-block btn-danger">
+          <i class="fab fa-linkedin mr-2"></i> Sign in using LinkedIn
+        </a> -->
+
+      </div>
+      <!-- /.social-auth-links -->
+
+      <p class="mb-1">
+        <a href="/users/password/new">I forgot my password</a>
+      </p>
+      <p class="mb-0">
+        <a href="/users/sign_up" class="text-center">Register a new membership</a>
+      </p>
+    </div>
+    <!-- /.card-body -->
+  </div>
+  <!-- /.card -->
+</div>
+</body>
+<!-- /.login-box -->

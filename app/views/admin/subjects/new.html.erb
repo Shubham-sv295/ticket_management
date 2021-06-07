@@ -1,0 +1,19 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+        <%= form_for @subject, url:admin_subjects_path do |f|%>
+        <div>
+        <%= f.text_field:name, :placeholder =>"Enter subject", :class => "col-md-3"%>
+        </div>
+          <div >
+            <br/>
+            
+            <%= f.select :manager,User.where(:role => "manager").pluck(:name, :id),{:include_blank => ''},{class: "drop-down col-md-3", :multiple => true}%>
+          </div>
+        <br/>
+        <%= f.submit "Add", :class => "button btn btn-success"%>
+        <%end%>
+    </div>
+  </div>
+</div>

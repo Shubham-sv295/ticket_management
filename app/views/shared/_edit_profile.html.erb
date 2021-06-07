@@ -1,0 +1,62 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <div class="login-box">
+  <!-- /.login-logo -->
+            <div class="card card-outline card-primary">
+              <div class="card-header text-center">
+                <a href="../../index2.html" class="h1"><b>Ticket</b>Management</a>
+              </div>
+              <div class="card-body">
+                <p class="login-box-msg">Edit Your Details</p>
+                <%= form_for(current_user, url: @path, :class => "form-horizontal") do |f| %>
+                  <div class="input-group mb-3">
+                    <%= f.email_field :email, :class => "form-control", :tabindex => "1", :required => "true", :autofocus => "true", :placeholder => "Email"%>
+                    <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-envelope"></span>
+                    </div>
+                    </div>
+                  </div>
+                  <div class="input-group mb-3">
+                    <%= f.text_field :name, autofocus: true, autocomplete: "name",:class => "form-control", :placeholder => "Name"%>
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        <span class="fas fa-user"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="input-group mb-3">
+                    <%= f.text_field :mob_no, autofocus: true, autocomplete: "mob_no" , :class => "form-control", :placeholder =>"Mobile No", :placeholder => "Mobile No"%>
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        <span class="fa fa-phone"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <!-- <label for="customFile">Custom File</label> -->
+
+                    <div class="custom-file">
+                      <%= f.file_field :avatar, :class => "custom-file-input", id: "customFile"%> 
+                      <label class="custom-file-label" for="customFile">Choose file</label>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                  </div>
+                  <div class="col-4">
+                    <%= f.submit "Update", :class => "btn btn-primary btn-block" %>
+                  </div>
+                <%end%>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  

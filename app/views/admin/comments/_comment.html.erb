@@ -1,0 +1,44 @@
+              <div class="direct-chat-messages">
+                <!-- Message. Default to the left -->
+                  <% $ticket.comments.order('created_at DESC').reverse.each do |comment|%>
+                    <% unless comment.content.to_s.strip.empty? %>
+                      
+                        <% if !comment.author.admin? %> 
+                          <div class="direct-chat-infos clearfix">
+                            <span class="direct-chat-name float-lefte" >
+                              <% if !@last_comment_author.eql?(comment.author.name)%>
+                              <%= comment.author.name %>
+                              <% end %>
+                              <% @last_comment_author = comment.author.name%>
+                            </span>
+                            <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
+                          </div>
+                          <% if comment.author.avatar.attached? %>
+                            <%= image_tag comment.author.avatar, :class => "direct-chat-img", :alt => "Message User Image" %>
+                          <% else %>
+                          <img class="direct-chat-img" src="/assets/user1-128x128.jpg" alt="Message User Image">
+                          <% end %>
+                          <div class="direct-chat-text">
+                            <%= comment.content %>
+                          </div>
+                        <%else%>
+                          <div class="direct-chat-msg right admin-comment-print">
+                            <div class="direct-chat-infos clearfix">
+                              <span class="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
+                            </div>
+                            <!-- /.direct-chat-infos -->
+                            <% if comment.author.avatar.attached? %>
+                              <%= image_tag comment.author.avatar, :class => "direct-chat-img", :alt => "Message User Image" %>
+                            <% else %>
+                             <img class="direct-chat-img" src="/assets/user3-128x128.jpg" alt="Message User Image">
+                            <% end %>
+                            <!-- /.direct-chat-img -->
+                            <div class="direct-chat-text">
+                              <span><%= comment.content %></span>
+                            </div>
+                            <!-- /.direct-chat-text -->
+                          </div>
+                        <%end%>
+                    <%end%>
+                  <%end%> 
+              </div>

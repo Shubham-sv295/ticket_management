@@ -1,0 +1,28 @@
+<% if user_signed_in? %>  
+  <%if current_user.admin? %>
+    <%= render "base/control_sidebar" %>
+    <%= render "base/admin_header" %>
+    <%= render "base/admin_sidebar" %>
+  <%elsif current_user.manager?%>
+    <%= render "base/manager_sidebar" %>
+     <%= render "base/manager_header" %>
+  <% else%>
+     <%= render "base/user_sidebar" %>
+     <%= render "base/user_header" %>
+  <%end%>       
+<% else %>
+   <div class="card card-primary card-outline">
+              <div class="card-header">
+                <b>Ticket</b>Management
+              </div>
+              <div class="card-body">
+                <h6 class="card-title">Welcome to ticket management</h6>
+
+                <p class="card-text">For Using The ticket management Apllication you have to Register yourself on the application if you have already registered Simply click on <b>loging</b> button othrwise Register yourself using <b>signup</b> button</p>
+                <%= link_to('SignUp', new_user_registration_path,:class => "btn btn-success") %>
+                <%= link_to('Login', new_user_session_path,:class => "button btn btn-primary") %>
+              </div>
+            </div>  
+<% end %>
+
+

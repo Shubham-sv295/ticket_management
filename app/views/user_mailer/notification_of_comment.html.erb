@@ -1,0 +1,48 @@
+<% if @comment.author.customer? %>
+  <h1>Hi Mr. <%= @ticket.manager.name %></h1>
+    <p>
+      Mr.<%= @ticket.user.name %> Commented on Ticket_no.
+      <%= @ticket.ticket_no%>
+      <br/>
+      <h4>"<%= @comment.content %>"</h4>
+      <%= link_to('View Comment ', managers_ticket_url(@ticket.id, user: @ticket.manager)) %>
+      <br/>
+      <p>Thanks regards.</p>
+    </p>
+<% elsif @comment.author.manager? %>
+  <h1>Hi Mr. <%= @ticket.user.name %></h1>
+    <p>
+      Your Ticket no <%= @ticket.ticket_no%> has new comments by 
+      <li>Manager Mr.<%= @ticket.manager.name %></li>
+      <br/>
+      <h4>"<%= @comment.content %>"</h4>
+      <br/>
+      <%= link_to('View Comment ', user_ticket_url(@ticket.id, user: @ticket.user)) %>
+      <br/>
+      <p>Thanks regards.</p>
+    </p>
+<% elsif @comment.author.admin? %>
+  <% if @receiver == @ticket.manager.email%>
+    <h1>Hi Mr. <%= @ticket.manager.name %></h1>
+    <p>
+      Admin Mr.<%= @comment.author.name %> Commented on Ticket_no.
+      <%= @ticket.ticket_no%>
+      <br/>
+      <h4>"<%= @comment.content %>"</h4>
+      <%= link_to('View Details ', managers_ticket_url(@ticket.id, user: @ticket.manager)) %>
+      <br/>
+      <p>Thanks regards.</p>
+    </p>
+  <% elsif @receiver == @ticket.user.email %>
+    <h1>Hi Mr. <%= @ticket.user.name %></h1>
+    <p>
+      Your Ticket no <%= @ticket.ticket_no%> has new comments by 
+      <li>Admin Mr.<%= @comment.author.name %></li>
+      <br/>
+      <h4>"<%= @comment.content %>"</h4>
+      <%= link_to('View Comment ', user_ticket_url(@ticket.id, user: @ticket.user)) %>
+      <br/>
+      <p>Thanks regards.</p>
+    </p>
+  <% end %>
+<% end %>

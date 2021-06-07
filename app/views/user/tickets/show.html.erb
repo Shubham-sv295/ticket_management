@@ -1,0 +1,54 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="card card-primary card-outline col-6">
+          <div class="card-header">
+            <h5 class="m-0"><%= @ticket.ticket_no%></h5>
+          </div>
+          <div class="card-body">
+            <p>Subject : <%= @ticket.subject.name %></p>
+            <p>Status : <%= @ticket.status %></p>
+            <p>Description  : <%= @ticket.description%></p>
+            <%= link_to('Delete ', user_ticket_path(@ticket.id), method: :delete, :class => " btn btn-danger") %>
+            <%= link_to('Edit Ticket', edit_user_ticket_path(@ticket.id), :class => " btn btn-info") %>
+            <% if !@ticket.completed? %>
+            <%= link_to('Mark as Resolved', user_solved_by_user_path(@ticket.id), :class => " btn btn-info") %>
+            <% end %> 
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-5">
+          <!-- DIRECT CHAT PRIMARY -->
+          <div class="card card-primary card-outline direct-chat direct-chat-primary">
+            <div class="card-header">
+              <h3 class="card-title">Comments</h3>
+
+              <div class="card-tools">
+                <span title="3 New Messages" class="badge bg-primary">3</span>
+              </div>
+            </div>
+            <%= render partial: "shared/load_comments", locals: { role: current_user.role} %>
+            <!-- /.card-header -->
+            <!-- /.card-body -->
+            <div class="card-footer">
+              <%= form_for(@ticket.comments.new, url:user_create_comment_path, id: "user-comment-form", remote: true) do |form| %>
+                <div class="input-group">
+                  <%= form.text_field :content, :placeholder => "Write something", :autocomplete => "off", :class => "user-comment form-control" %>
+                  <%= form.hidden_field :ticket_id, value:  @ticket.id, :class => "ticket-id" %>
+                  <span class="input-group-append">
+                    <%= form.submit "add", :class => "btn btn-primary user-comment-btn"%>
+                  </span>
+                </div>
+              <% end %>
+            </div>
+            <!-- /.card-footer-->
+          </div>
+          <!--/.direct-chat -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

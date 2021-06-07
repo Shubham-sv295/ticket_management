@@ -1,0 +1,255 @@
+.form-design
+{
+  width:250px;
+  height:320px;
+  padding:2px 2px 2px 2px;
+  position:absolute;
+  top:20%;
+  left:40%;
+  right:40%;
+  background:orange;
+  border-radius:5px;
+  box-shadow:5px 5px 5px black;
+}
+.sign-up-form-design
+{
+  width:250px;
+  height:520px;
+  padding:2px 2px 2px 2px;
+  position:absolute;
+  top:5%;
+  left:40%;
+  right:40%;
+  background:orange;
+  border-radius:5px;
+  box-shadow:5px 5px 5px black;
+}
+.form-group
+{
+  padding-left:20px;
+}
+.checkbox
+{
+  padding-left:20px;
+}
+.btn-div
+{
+  padding-left:35%;
+}
+h4
+{
+  text-align:center;
+}
+.renders
+{
+  
+  padding-left:20px;
+  text-decoration:underline;
+}
+.fields
+{
+  border-radius:5px;
+}
+.header-containers
+{
+  width:100%;
+  height:50px;
+  background:orange;
+  position:absolute;
+  padding-left:50px;
+}
+.header-btn
+{
+  margin-top:5px;
+  margin-right:10px;
+  float:right;
+}
+.profile-containers
+{
+  position:absolute;
+  top:10%;
+}
+.wel-mar  
+{
+  position:absolute;
+  top:5px;
+  width:70%;
+  height:38px;
+  background:green;
+  border-radius:5px;
+  left:2%;
+}
+.admin-mar
+{
+  width:50%;
+  left:2%;
+}
+.add-manager-form-design
+{
+  width:300px;
+  height:450px;
+  padding:2px 2px 2px 2px;
+  position:absolute;
+  top:10%;
+  left:40%;
+  right:40%;
+  background:orange;
+  border-radius:5px;
+  box-shadow:5px 5px 5px black;
+}
+.add-manager-form-design .btn-div
+{
+  padding-left:30%;
+}
+.add-manager-form-design .form-group
+{
+  padding-left:40px;
+}
+.big-div
+{
+  position :absolute;
+  top:10%;
+  left:1%;
+}
+.big-div .subject-field
+{
+  width:150px;
+}
+.ticket-form
+{
+  height:200px;
+}
+.drop-down
+{
+  width:85%;
+  height:30px;
+  border-radius:5px;
+  margin-left:8%;
+}
+.ticket-form .s-btn
+{
+  margin-left:33%;
+  margin-top:20px;
+}
+.ticket-form-header
+{
+  position: absolute;
+  top:10%;
+  left:39%;
+}
+.new-ticket
+{
+  float:right;
+  margin-right:20px;
+  margin-top:30px
+}
+.last-record
+{
+  position:absolute;
+  margin-top:65px;
+}
+.ticket-counts
+{
+  position: absolute;
+  top:35%;
+}
+.comments
+{
+  width: 250px;
+  background: #EEE8AA;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+  margin-left: 30px;
+}
+::-webkit-scrollbar 
+{
+  display: none;
+}
+
+.comments ul 
+{
+  list-style: none;
+  margin-left: -20px;
+}
+.comment-input
+{
+  width: 250px;
+  background: #EEE8AA;
+  height: 50px; 
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  margin-left: 30px;
+}
+.comment-input input
+{ 
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  outline: none;
+  background: transparent;
+  margin-left: 25px;
+  margin-top: 10px;  
+}
+.comments .others_name
+{
+  margin-left: 40%;
+}
+.comments .others_comment
+{
+  float:right;
+  margin-right: 5px;
+  background: white;
+  border-radius: 4px;
+}
+.comments .our_comment
+{
+  float: left;
+  background: #128C7E;
+  border-radius: 4px;
+}
+.clearfix::after {
+  clear: both;
+  display: block;
+}
+#selected-value p
+{
+  opacity : 0;
+}
+.ticket-list
+{
+  position: absolute;
+  top:50px;
+}
+.ticket-list h5, h4
+{
+  text-align: left;
+}
+.login-card
+{
+  position: relative;
+  margin-top: 50px;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+.auth-logins
+{
+  width:200px;
+  height:28px;
+  background: green;
+  border-radius: 25px;
+}
+.comment-time
+{
+  position: absolute;
+    bottom:10px; /* top: 0; */
+    right:5px; /* left: 0; */
+    z-index: 10;
+    text-align:right;
+    vertical-align:bottom;
+}
+.card
+{
+  box-shadow:2px 2px 5px black;
+}

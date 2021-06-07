@@ -1,0 +1,15 @@
+current directory: /home/rails/ticket_management/vendor/cache/ruby/2.7.0/gems/websocket-driver-0.7.3/ext/websocket-driver
+/usr/share/rvm/rubies/ruby-2.7.2/bin/ruby -I /usr/share/rvm/rubies/ruby-2.7.2/lib/ruby/2.7.0 -r ./siteconf20210402-15375-xmbcki.rb extconf.rb
+creating Makefile
+
+current directory: /home/rails/ticket_management/vendor/cache/ruby/2.7.0/gems/websocket-driver-0.7.3/ext/websocket-driver
+make "DESTDIR=" clean
+
+current directory: /home/rails/ticket_management/vendor/cache/ruby/2.7.0/gems/websocket-driver-0.7.3/ext/websocket-driver
+make "DESTDIR="
+compiling websocket_mask.c
+linking shared-object websocket_mask.so
+
+current directory: /home/rails/ticket_management/vendor/cache/ruby/2.7.0/gems/websocket-driver-0.7.3/ext/websocket-driver
+make "DESTDIR=" install
+/usr/bin/install -m 0755 websocket_mask.so ./.gem.20210402-15375-l0m0o6

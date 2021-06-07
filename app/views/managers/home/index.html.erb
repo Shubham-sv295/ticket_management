@@ -1,0 +1,78 @@
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <section class="content">
+      <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>
+                  <%= @resolved_by_manager_tickets_count %> 
+                </h3>
+
+                <p>Waiting for Customer response</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-bag"></i>
+              </div>
+              <%= link_to("More info", managers_tickets_path(type: 
+                "resolved_by_manager"), :class => "small-box-footer ") %>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3><%= @unresolved_tickets_count %></h3>
+                <p>Unsolved Tickets</p><br/>
+              </div>
+              <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+              </div>
+              <%= link_to("More info", managers_tickets_path(type: "unresolved"), :class => "small-box-footer ")  %>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3><%= @complete_tickets_count %></h3>
+
+                <p>Solved Tickets</p><br/>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <%= link_to("More info", managers_tickets_path(type: "completed"), :class => "small-box-footer ")  %>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-primary">
+              <div class="inner">
+                <h3><%= @all_assigned_tickets %></h3>
+                <p>All Tickets</p><br/>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <%= link_to("More info", managers_tickets_path, :class => "small-box-footer ") %>
+            </div>
+          </div>
+          <!-- ./col -->
+          
+          <!-- ./col -->
+        </div>
+      </div>
+    </section>
+    </div>
+  </div>
+</div>

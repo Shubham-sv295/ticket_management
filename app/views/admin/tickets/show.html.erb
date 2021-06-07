@@ -1,0 +1,46 @@
+<div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <ul>
+        <h4><%= @ticket.ticket_no%></h4>
+          <h5>Subject : <%= @ticket.subject.name%></h5>
+          <h5>Customer : <%= @ticket.user.name %></h5>
+          <h5>Manager : <%= @ticket.manager.name if @ticket.manager.present? %></h5>
+          <h5>Status : <%= @ticket.status %></h5>
+          <h5>Description : <%= @ticket.description %></h5> 
+      </ul>
+      <div class="row">
+        <div class="col-md-5">
+          <!-- DIRECT CHAT PRIMARY -->
+          <div class="card card-primary card-outline direct-chat direct-chat-primary">
+            <div class="card-header">
+              <h3 class="card-title">Comments</h3>
+
+              <div class="card-tools">
+                <span title="3 New Messages" class="badge bg-primary">3</span>
+              </div>
+            </div>
+            <%= render partial: "shared/load_comments", locals: { role: current_user.role} %>
+            <!-- /.card-header -->
+            <!-- /.card-body -->
+            <div class="card-footer">
+              <%= form_for(@ticket.comments.new, url: admin_tickets_create_comment_path , id: "admin-comment-form", remote: true) do |form| %>
+                <div class="input-group">
+                  <%= form.text_field :content, :placeholder => "Write something", :autocomplete => "off", :class => "admin-comment form-control" %>
+                  <%= form.hidden_field :ticket_id, value:  @ticket.id, :class => "ticket-id" %>
+                  <span class="input-group-append">
+                    <%= form.submit "add", :class => "btn btn-primary admin-comment-btn"%>
+                  </span>
+                </div>
+              <% end %>
+             
+            </div>
+            <!-- /.card-footer-->
+          </div>
+          <!--/.direct-chat -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+            <div class="card-body">
+              <!-- Conversations are loaded here -->
+              <div class="direct-chat-messages">
+                <!-- Message. Default to the left -->
+                  <% @ticket.comments.order('created_at DESC').reverse.each do |comment|%>
+                    <% unless comment.content.to_s.strip.empty? %>
+                        <% if !comment.author.role.eql?(role) %> 
+                          <div class="direct-chat-infos clearfix">
+                            <span class="direct-chat-name float-lefte" >
+                              <% if !$last_comment_author.eql?(comment.author.name)%>
+                              <%= comment.author.name %>
+                              <% end %>
+                            </span>
+                            <% if comment.created_at.to_date != $last_comment_date%>
+                              <span class="direct-chat-timestamp float-right"><%= comment.created_at.to_date%>
+                              </span>
+                            <% end %>
+                          </div>
+                          <% if !$last_comment_author.eql?(comment.author.name) || comment.created_at.to_date != $last_comment_date%>
+                              <% if comment.author.avatar.attached? %>
+                                <%= image_tag comment.author.avatar, :class => "direct-chat-img", :alt => "Message User Image" %>
+                              <% else %>
+                                <img class="direct-chat-img" src="/assets/user1-128x128.jpg" alt="Message User Image">
+                              <% end %>
+                              <% $last_comment_author = comment.author.name%>
+                            <% end %>
+                          <div class="direct-chat-text">
+                            <%= comment.content %>
+                            <sub class = "comment-time"><%= comment.created_at.strftime("%I:%M %P")%></sub>
+                            <% $last_comment_date = comment.created_at.to_date %>
+                          </div>
+                        <%else%>
+                          <div class="direct-chat-msg right admin-comment-print">
+                            <% if comment.created_at.to_date != $last_comment_date%>
+                              <div class="direct-chat-infos clearfix">
+                                <span class="direct-chat-timestamp float-left"><%= comment.created_at.to_date%></span>
+                              </div>
+                            <% end %>
+                            <!-- /.direct-chat-infos -->
+                            <% if !$last_comment_author.eql?(comment.author.name)%>
+                              <% if comment.author.avatar.attached? %>
+                                <%= image_tag comment.author.avatar, :class => "direct-chat-img", :alt => "Message User Image" %>
+                              <% else %>
+                               <img class="direct-chat-img" src="/assets/user1-128x128.jpg" alt="Message User Image">
+                              <% end %>
+                              <% $last_comment_author = comment.author.name%>
+                            <% end %>
+                            <!-- /.direct-chat-img -->
+                            <div class="direct-chat-text">
+                              <span>
+                                <%= comment.content %>
+                                <sub class = "comment-time"><%= comment.created_at.strftime("%I:%M %P")%></sub>
+                                <% $last_comment_date = comment.created_at.to_date %>
+                              </span>
+                            </div>
+                            <!-- /.direct-chat-text -->
+                          </div>
+                        <%end%>
+                    <%end%>
+                  <%end%>
+              </div>
+            </div>

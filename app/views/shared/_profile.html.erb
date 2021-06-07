@@ -1,0 +1,56 @@
+
+          <!-- /.col -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+                <div class="col-md-4">
+            <!-- Widget: user widget style 2 -->
+            <div class="card card-widget widget-user-2">
+              <!-- Add the bg color to the header using any of the bg-* classes -->
+              <div class="widget-user-header bg-warning">
+                <div class="widget-user-image">
+                  <% if current_user.avatar.attached? %>
+                  <%= image_tag current_user.avatar ,:class => "img-circle elevation-2" %>
+                <% else %>
+                  <img class="img-circle elevation-2" src="/assets/user7-128x128.jpg" alt="User Avatar">
+                <%end%>
+                </div>
+                <!-- /.widget-user-image -->
+                <h3 class="widget-user-username"><%=current_user.name%>
+                  <%= link_to(@path) do %>
+                    <i class="fas fa-edit" style = "color:black"></i>
+                  <% end %></h3>
+                <h5 class="widget-user-desc"><%= current_user.role%></h5>
+              </div>
+              <div class="card-footer p-0">
+                <ul class="nav flex-column">
+                  <% if current_user.manager? %>
+                    <li class="nav-item">
+                      <b class="nav-link"> Completed
+                        Tickets <span class="float-right badge bg-primary"><%= current_user.assign_tickets.completed.count %></span>
+                      </b>
+                    </li>
+                  <% end %>
+                  <li class="nav-item">
+                    <b class="nav-link">
+                      Mobile No <span class="float-right badge bg-info"> <%= current_user.mob_no%></span>
+                    </b>
+                  </li>
+                  <li class="nav-item">
+                    <b class="nav-link">
+                      Email <span class="float-right badge bg-success">
+                        <%= current_user.email%></span>
+                    </b>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- /.widget-user -->
+          </div>
+    </div><!-- /.container-fluid -->
+  </div>
+</div>
+
+
+

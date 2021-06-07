@@ -1,0 +1,35 @@
+<body class="hold-transition register-page">
+  <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="register-box">
+          <div class="register-logo">
+            <b>Ticket</b>Management
+          </div>
+
+          <div class="card">
+            <div class="card-body register-card-body">
+              <p class="login-box-msg">Assign Manager</p>
+              <%= form_for [:admin, @ticket] do |form| %>
+                <div class="input-group mb-3">
+                  <%= form.select :manager_id,@ticket.subject.managers.pluck(:name, :id),{prompt:'select manager'},{class: "drop-down form-control"} %>
+                  <%= form.hidden_field :status, :value => "inprogress" %>
+                </div>
+                <div class="row">
+                  <!-- /.col -->
+                  <div class="col-4">
+                    <%= form.submit "Assign", :class => "btn btn-primary btn-block"%>
+                  </div>
+                  <!-- /.col -->
+                </div>
+              <% end %>
+            </div>
+            <!-- /.form-box -->
+          </div><!-- /.card -->
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<!-- /.register-box -->

@@ -1,0 +1,66 @@
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">All Managers</h3>
+                <span style = "float: right"><%= link_to('Add new manager', new_admin_manager_path, :class => " btn btn-success") %></span>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0" style="max-height: 300px;">
+                <table class="table table-head-fixed text-nowrap">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>User</th>
+                      <th>Email</th>
+                      <th>Mobile No.</th>
+                      <th>Completed Tickets</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <% @managers.each do |manager|%>
+                    <tbody>
+                      <tr>
+                        <td><%= manager.id%></td>
+                        <td><%= manager.name%></td>
+                        <td><%= manager.email%></td>
+                        <td><%= manager.mob_no%></td>
+                        <td><%= manager.assign_tickets.completed.count %></td>
+                        <td><%= link_to(admin_manager_path(manager.id) ,
+                            method: :delete) do %>
+                              <i class="fas fa-trash-alt"></i>
+                            <%end%>
+                        </td>
+                      </tr>
+                    </tbody>
+                  <%end%>
+                </table>
+              </div>
+              
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
